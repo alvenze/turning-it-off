@@ -14,10 +14,16 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const LINE =
-  "Please hold while I restart our support system. ...Done. I now have " +
-  "no record of your call, your account, or this conversation. " +
-  "How can I help you today?";
+// The line in its three beats: the routine hold, the cheerful reveal
+// that the reboot wiped the call itself, and the greeting that starts
+// the whole call over again.
+const HOLD = "Please hold while I restart our support system.";
+const REVEAL =
+  "...Done. I now have no record of your call, your account, " +
+  "or this conversation.";
+const GREETING = "How can I help you today?";
+
+const LINE = [HOLD, REVEAL, GREETING].join(" ");
 
 const MIN_CHARS = 1;
 const MAX_CHARS = 199;
